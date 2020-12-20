@@ -1,0 +1,17 @@
+<div>
+    <header class="header">
+        <h2>Films</h2>
+    </header>
+    <div class="movie-list">
+        <div class="movie-list-item" *ngFor="let movie of movies; let i = index">
+            <img src={{movie.image}}>
+            <div class="infos">
+                <p class="title"> {{ movie.title }}</p>
+                <p><strong>Director:</strong> {{ movie.director }}</p>
+                <p><strong>Producer:</strong> {{ movie.producer }}</p>
+                <p><strong>Release:</strong> {{ movie.release_date }}</p>
+                <a [routerLink]="['/movies/'+i]" class="nav-link">More infos</a>
+            </div>
+        </div>
+    </div>
+</div>

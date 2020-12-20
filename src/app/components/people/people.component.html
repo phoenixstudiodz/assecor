@@ -1,0 +1,40 @@
+<div>
+    <header class="header" *ngIf="!loading && people.name">
+        <p>Character details</p>
+        <h2>{{people.name}}</h2>
+    </header>
+
+    <div class="film-details" *ngIf="!loading && people.name">
+        <div class="infos">
+            <p class="title"><strong>Details:</strong></p>
+            <p><strong>Height:</strong> {{people.height}}</p>
+            <p><strong>Mass:</strong> {{people.mass}}</p>
+            <p><strong>Birth:</strong> {{people.birth_year}}</p>
+            <p><strong>Gender:</strong> {{people.gender}}</p>
+        </div>
+        <div class="film-cover" style="background-image: url({{people.image}});">
+        </div>
+        <div *ngIf="movies && movies.length > 0">
+            <div class="more-infos">
+                <h3>Movies</h3>
+                <div class="more-infos-list-item">
+                <ng-container *ngFor="let movie of movies; let i = index">
+                    <a [routerLink]="['/movies/'+movie.id]" class="nav-link">{{movie.title}}</a>
+                </ng-container>
+                <a [routerLink]="['/movies/']" class="nav-link">...</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="film-details" *ngIf="!loading && !people.name">
+    Error
+</div>
+
+<div class="film-details" *ngIf="loading">
+    Loading...
+</div>
+

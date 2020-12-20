@@ -1,0 +1,18 @@
+<div>
+    <header class="header">
+        <h2>Characters</h2>
+    </header>
+    <div class="movie-list">
+        <div class="movie-list-item" *ngFor="let people of peoples; let i = index">
+            <img
+                src={{people.image}}>
+            <div class="infos">
+                <p class="title">{{ people.name }}</p>
+                <p><strong>Height:</strong> {{ people.height }}</p>
+                <p><strong>Gender:</strong> {{ people.gender }}</p>
+                <p><strong>Birth:</strong> {{ people.birth_year }}</p>
+                <a [routerLink]="['/people/'+i]" class="nav-link">More infos</a>
+            </div>
+        </div>
+    </div>
+</div>
